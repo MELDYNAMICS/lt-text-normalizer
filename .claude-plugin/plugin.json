@@ -1,0 +1,12 @@
+{
+  "name": "lt-text-normalizer",
+  "version": "0.9.2",
+  "description": "Normalize Lithuanian written text into spoken-form text.",
+  "author": {
+    "name": "MELDYNAMICS"
+  },
+  "repository": "https://github.com/meldynamics/lt-text-normalizer",
+  "skills": [
+    "./skills/lt-text-normalizer"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "lt-text-normalizer",
+  "version": "0.9.2",
+  "description": "Normalize Lithuanian written text into spoken-form text.",
+  "author": {
+    "name": "MELDYNAMICS",
+    "url": "https://github.com/meldynamics"
+  },
+  "homepage": "https://github.com/meldynamics/lt-text-normalizer",
+  "repository": "https://github.com/meldynamics/lt-text-normalizer",
+  "keywords": [
+    "lithuanian",
+    "text-normalization",
+    "speech",
+    "stress",
+    "agent-skill"
+  ]
+}
