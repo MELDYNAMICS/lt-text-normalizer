@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 NAME = "lt-text-normalizer"
-VERSION = "0.9.2"
+VERSION = "0.10.0"
 
 
 def load_json(relative_path: str) -> dict:
@@ -65,6 +65,8 @@ def validate_skill() -> None:
             "SKILL.md must link the complete published-rule catalog for audits")
     require("references/implementation-landscape.md" in text,
             "SKILL.md must route implementation comparisons to the provenance reference")
+    require("references/usage-guidance.md" in text,
+            "SKILL.md must route numeral form choices to the usage guidance")
     require("Do not require a model identifier" in text,
             "SKILL.md must accept text without an integration declaration")
     require("return only the normalized Lithuanian text" in text,
@@ -185,6 +187,42 @@ def validate_literature_candidates() -> None:
     require(records, "literature candidate fixture file is empty")
 
 
+def validate_usage_guidance_cases() -> None:
+    guidance = (ROOT / "skills" / NAME / "references" / "usage-guidance.md").read_text(encoding="utf-8")
+    path = ROOT / "tests" / "usage-guidance-cases.jsonl"
+    require(path.is_file(), "usage guidance case file is missing")
+    identifiers = set()
+    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.strip():
+            continue
+        try:
+            record = json.loads(line)
+        except json.JSONDecodeError as error:
+            raise ValueError(
+                f"invalid JSON in {path.relative_to(ROOT)} line {line_number}: {error}"
+            ) from error
+        require(record.get("review_state") == "published_guidance_unreviewed",
+                f"usage guidance case line {line_number} has an invalid review state")
+        identifier = record.get("id")
+        require(isinstance(identifier, str) and identifier and identifier not in identifiers,
+                f"usage guidance case line {line_number} has a missing or duplicate id")
+        identifiers.add(identifier)
+        require(isinstance(record.get("input"), str) and record["input"],
+                f"usage guidance case line {line_number} is missing input")
+        outputs = record.get("allowed_outputs")
+        require(isinstance(outputs, list) and outputs and all(isinstance(o, str) and o for o in outputs),
+                f"usage guidance case line {line_number} must list its allowed outputs")
+        sources = record.get("sources")
+        require(isinstance(sources, list) and sources,
+                f"usage guidance case line {line_number} is missing sources")
+        for source in sources:
+            require(source.get("publisher") in {"VLKK", "LKI"} and source.get("url") in guidance,
+                    f"usage guidance case line {line_number} cites a source the guidance does not list")
+        require(isinstance(record.get("focus"), list) and record["focus"],
+                f"usage guidance case line {line_number} is missing test focus")
+    require(identifiers, "usage guidance case file is empty")
+
+
 def validate_manifests() -> None:
     portable = load_json("plugin.json")
     codex = load_json(".codex-plugin/plugin.json")
@@ -250,6 +288,7 @@ def validate_repository() -> None:
 def main() -> None:
     validate_skill()
     validate_literature_candidates()
+    validate_usage_guidance_cases()
     validate_manifests()
     validate_repository()
     print(f"Package validation passed: {ROOT}")

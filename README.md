@@ -19,6 +19,7 @@ preserved exactly for pipelines that perform stress restoration separately.
 plugin.json                              portable Agent Plugin manifest
 skills/lt-text-normalizer/               canonical Agent Skill
   references/examples.md                 preserve/expand/abstain examples
+  references/usage-guidance.md           VLKK/LKI numeral and written-form norms
   references/publication-examples.md     attributed literature examples
   references/published-rule-catalog.md   all 60 published rule blocks
   references/published-rule-families/    class router and per-rule examples
@@ -66,7 +67,7 @@ npx skills add MELDYNAMICS/lt-text-normalizer
 
 ### Agent Skills-compatible hosts
 
-Clone this private repository, then install or copy
+Clone this repository, then install or copy
 `skills/lt-text-normalizer/` into the host's skills directory. The
 folder follows the [Agent Skills specification](https://agentskills.io/specification).
 
@@ -109,6 +110,9 @@ Before any production claim, run the behavioral protocol in
 fixtures and publish immutable agent, skill, and fixture revisions.
 Source-linked, non-gold review candidates are available in
 [`tests/literature-candidates.jsonl`](tests/literature-candidates.jsonl).
+[`tests/usage-guidance-cases.jsonl`](tests/usage-guidance-cases.jsonl) holds
+sentences built from cited VLKK and LKI examples, with the outputs that
+guidance implies; they are not yet reviewed by a Lithuanian speaker.
 
 See the skill's
 [`behavioral examples`](skills/lt-text-normalizer/references/examples.md)
@@ -119,6 +123,9 @@ retain publication provenance and limitations. The
 [`published-rule catalog`](skills/lt-text-normalizer/references/published-rule-catalog.md)
 maps every numbered block (1)–(60) in the paper and explicitly records the
 unavailable remainder of its reported implementation. The
+[`usage guidance`](skills/lt-text-normalizer/references/usage-guidance.md)
+summarizes VLKK and LKI norms for numeral forms, written forms and capitals,
+with source links and the sources' own examples. The
 [`rule router`](skills/lt-text-normalizer/references/published-rule-families/README.md)
 splits those rules into four class branches and gives every rule a paper or
 clearly marked schematic example plus a usage guard.

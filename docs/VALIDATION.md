@@ -52,6 +52,13 @@ Gold outputs must come from reviewed grammars or human-approved fixtures, not
 from the agent being tested. Allow multiple outputs only when every listed
 reading is acceptable for the same input and context.
 
+Cases built from published usage guidance use
+`"review_state": "published_guidance_unreviewed"`. Their `allowed_outputs`
+follow the cited VLKK or LKI examples, not the agent under test. Score them as
+a separate guidance-conformance view; they count toward release gates only
+after a Lithuanian-speaking reviewer approves them. The current set is
+[`tests/usage-guidance-cases.jsonl`](../tests/usage-guidance-cases.jsonl).
+
 Paper-derived candidates may use
 `"review_state": "literature_candidate_unreviewed"` and omit
 `allowed_outputs`. Keep them out of pass/fail totals and release gates until a
@@ -95,6 +102,9 @@ license a Lithuanian expansion; unsupported classes still preserve and report.
 - All-uppercase context must produce all-uppercase replacement words.
 - Sentence-initial replacements must begin with appropriate capitalization.
 - Do not uppercase or lowercase the entire sentence merely to simplify a rule.
+- A capitalized number word in a title or name (`Antrojo pasaulinio karo`)
+  and its lower-case form differ only in case. Report case-only differences
+  separately from value and morphology errors.
 - Include month names and abbreviations in lowercase, title case, and all caps;
   the paper specifically reports an uppercase-month recognition failure.
 

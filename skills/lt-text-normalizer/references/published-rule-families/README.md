@@ -23,6 +23,10 @@ read every branch for an ordinary normalization request.
 | Telephone numbers, ISBN/postal/study codes, email addresses, and URLs | K46–K50 | [Telephones, codes, and URLs](03-telephones-codes-and-urls.md) |
 | Words read aloud, letter sequences, and expandable abbreviations | K51–K60 | [Abbreviations and letter sequences](04-abbreviations-and-letter-sequences.md) |
 
+Within a class, choose numeral forms (collectives, ordinals, compound
+declension, case after `apie`) and recognize standard written forms with
+[the VLKK and LKI usage guidance](../usage-guidance.md).
+
 For coverage auditing rather than runtime routing, read the
 [60-block master catalog](../published-rule-catalog.md). For the small set of
 examples checked directly against rendered PDF pages, read

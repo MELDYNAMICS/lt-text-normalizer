@@ -2,7 +2,7 @@
 name: lt-text-normalizer
 description: "Normalize Lithuanian written text into context-appropriate spoken-form text. Use when expanding numbers, dates, times, abbreviations, units, symbols, or letter sequences in Lithuanian text of any casing or stress state. Preserve existing stress exactly and keep new expansions unstressed. Do not use this skill to create stressed training targets or approve corpus rows."
 metadata:
-  version: "0.9.2"
+  version: "0.10.0"
 ---
 
 # Normalize Lithuanian Text
@@ -25,7 +25,9 @@ processing, including downstream stress restoration.
    morphology. Before changing a candidate, read the relevant branch of
    [the publication-derived rule router](references/published-rule-families/README.md)
    for documented behavior, ordering dependencies, and guards. Open a second
-   branch only when two classes genuinely compete.
+   branch only when two classes genuinely compete. When choosing the form of a
+   number, date, time, or measurement, read
+   [the VLKK and LKI usage guidance](references/usage-guidance.md).
 4. Expand a candidate only when its value, class, and Lithuanian form are
    unambiguous in context. Preserve its numeric value and meaning. Do not use a
    generic masculine form when context requires feminine, treat identifiers as
@@ -35,7 +37,9 @@ processing, including downstream stress restoration.
    stressed, and unstressed input. Preserve the casing of unchanged text.
    Render a replacement in all caps when the surrounding sentence is all caps;
    otherwise use normal Lithuanian casing and capitalize it when it begins a
-   sentence.
+   sentence. A number word in a title or name may keep the capital the
+   spelling rules give it (`Antrojo pasaulinio karo`). Case is secondary for
+   spoken output; never abstain over case alone.
 6. Treat every stress-bearing source span as immutable. Preserve its exact
    code-point sequence, including combining grave U+0300, acute U+0301, and
    tilde U+0303. Never move, replace, compose away, or strip a stress mark. Do
