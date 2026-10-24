@@ -32,3 +32,20 @@ written-to-spoken normalization, including preparation for stress restoration.
 Run `python3 scripts/validate_package.py` after every packaging or skill change.
 Behavioral releases must additionally satisfy `docs/VALIDATION.md` using
 reviewed fixtures.
+
+## Skills Directory listing
+
+The listing is <https://www.skillsdirectory.com/skills/meldynamics-lt-text-normalizer>.
+The maintainer's API key is `SKILLS_DIRECTORY_API_KEY` in the untracked,
+gitignored `.env` at the repository root. Load it into the environment and
+send it as the `x-api-key` header; never print, log, or commit its value.
+
+```bash
+set -a; . ./.env; set +a
+curl -s -H "x-api-key: $SKILLS_DIRECTORY_API_KEY" \
+  https://www.skillsdirectory.com/api/v1/skills/meldynamics-lt-text-normalizer
+```
+
+API reference: <https://www.skillsdirectory.com/api-docs>. After a release,
+check that the listing shows the new version; if it does not, ask the
+maintainer to resync it from the Skills Directory dashboard.
