@@ -2,7 +2,7 @@
 
 ## Current claim
 
-Version 0.10.0 is a behavioral specification for direct agent-mediated
+Version 0.11.0 is a behavioral specification for direct agent-mediated
 Lithuanian text normalization. It accepts raw text without an integration
 declaration and defines context-aware expansion, casing, ambiguity handling,
 Unicode and stress preservation, provenance, and validation requirements. It
@@ -57,7 +57,7 @@ least these dimensions separately:
 | Source-linked, unreviewed literature test candidates | 16 |
 | Rule blocks with a routed explanatory example and guard | 60/60 (100%) |
 | VLKK/LKI sources linked from `usage-guidance.md` | 22 |
-| Unreviewed cases built from that guidance | 17 |
+| Unreviewed cases built from that guidance | 23 |
 
 The catalog also records the paper's cascade ordering, unnumbered constraints,
 dataset-specific choices, and places where the publication uses ellipses or
@@ -70,8 +70,11 @@ summarizes published norms from the State Commission of the Lithuanian
 Language (VLKK: the 2022 spelling rules, a date resolution, the error list and
 consultations) and the Institute of the Lithuanian Language (LKI handbooks).
 It covers numeral forms (collectives with pluralia tantum, `vieni`/`vieneri`,
-endings after digits, year and day ordinals, compound declension, the case
-after `apie`), standard written forms and capitals in titles and names. The
+endings after digits, year and day ordinals, compound declension, thousands,
+millions and billions as counted nouns, the genitive plural after
+genitive-governing numbers, declined tens, the case after `apie`), standard
+written forms including grouped large numbers and the `0` telephone prefix,
+and capitals in titles and names. The
 sources' own examples are quoted. The page lists where the guidance is
 silent. It narrows choices among readings context allows; it is not a
 grammar, and its derived cases remain unreviewed.

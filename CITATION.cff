@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: "Pielikis"
     given-names: "Aleksas"
-version: 0.10.0
-date-released: 2026-10-17
+version: 0.11.0
+date-released: 2026-10-24
 repository-code: "https://github.com/meldynamics/lt-text-normalizer"
 license: CC-BY-4.0

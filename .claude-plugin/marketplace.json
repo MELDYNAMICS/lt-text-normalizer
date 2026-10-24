@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "lt-text-normalizer",
-      "version": "0.10.0",
+      "version": "0.11.0",
       "description": "Normalize Lithuanian written text into spoken-form text.",
       "source": "./"
     }

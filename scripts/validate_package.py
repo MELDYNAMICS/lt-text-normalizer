@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 NAME = "lt-text-normalizer"
-VERSION = "0.10.0"
+VERSION = "0.11.0"
 
 
 def load_json(relative_path: str) -> dict:

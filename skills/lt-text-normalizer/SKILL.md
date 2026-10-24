@@ -2,7 +2,7 @@
 name: lt-text-normalizer
 description: "Normalize Lithuanian written text into context-appropriate spoken-form text. Use when expanding numbers, dates, times, abbreviations, units, symbols, or letter sequences in Lithuanian text of any casing or stress state. Preserve existing stress exactly and keep new expansions unstressed. Do not use this skill to create stressed training targets or approve corpus rows."
 metadata:
-  version: "0.10.0"
+  version: "0.11.0"
 ---
 
 # Normalize Lithuanian Text
